@@ -1,0 +1,262 @@
+[
+  {
+    "id": "auth_flow_login",
+    "title": "User Authentication - Login Flow",
+    "description": "Test user login functionality and authentication flow",
+    "steps": [
+      "Navigate to http://localhost:8080",
+      "Verify login form is present with email and password fields",
+      "Enter valid test credentials",
+      "Click the login button",
+      "Verify successful login and redirect to dashboard",
+      "Verify user session is maintained"
+    ]
+  },
+  {
+    "id": "auth_flow_logout",
+    "title": "User Authentication - Logout Flow", 
+    "description": "Test user logout functionality",
+    "steps": [
+      "Login with valid credentials",
+      "Navigate to user menu or logout option",
+      "Click logout button",
+      "Verify user is logged out",
+      "Verify redirect to login page",
+      "Verify session is cleared"
+    ]
+  },
+  {
+    "id": "dashboard_load",
+    "title": "Security Dashboard Loading",
+    "description": "Test main dashboard loads correctly with all components",
+    "steps": [
+      "Login to application",
+      "Navigate to dashboard (root path)",
+      "Verify dashboard title 'Security Dashboard' is visible",
+      "Verify stats cards display (Total Alerts, Critical Threats, URL Scans, Email Scans)",
+      "Check that threat intelligence feed is present",
+      "Verify system health section displays",
+      "Verify backend status component is visible"
+    ]
+  },
+  {
+    "id": "dashboard_refresh", 
+    "title": "Dashboard Refresh Functionality",
+    "description": "Test dashboard refresh button functionality",
+    "steps": [
+      "Navigate to dashboard", 
+      "Locate and click the refresh button",
+      "Verify loading state indicators appear",
+      "Verify data updates after refresh",
+      "Check that stats are refreshed"
+    ]
+  },
+  {
+    "id": "url_analysis_navigation",
+    "title": "URL Analysis Page Navigation",
+    "description": "Test navigation to URL analysis page and form validation",
+    "steps": [
+      "Navigate to URL Analysis page (/url-analysis)",
+      "Verify page loads correctly",
+      "Verify URL input form is present",
+      "Test URL input field accepts text",
+      "Verify submit button is available",
+      "Test form validation with invalid URLs"
+    ]
+  },
+  {
+    "id": "email_inspection_navigation",
+    "title": "Email Inspection Page Navigation", 
+    "description": "Test navigation to email inspection page",
+    "steps": [
+      "Navigate to Email Inspection page (/email-inspection)",
+      "Verify page loads correctly",
+      "Verify email analysis form is present",
+      "Check for email headers input field",
+      "Verify email content input area",
+      "Test form inputs accept text"
+    ]
+  },
+  {
+    "id": "network_monitoring_navigation",
+    "title": "Network Monitoring Page Navigation",
+    "description": "Test navigation to network monitoring page and visualization",
+    "steps": [
+      "Navigate to Network Monitoring page (/network-monitoring)",
+      "Verify page loads correctly",
+      "Check for network visualization components",
+      "Verify file upload section for PCAP files",
+      "Test network traffic input forms",
+      "Verify charts and graphs are present"
+    ]
+  },
+  {
+    "id": "threat_intelligence_navigation",
+    "title": "Threat Intelligence Page Navigation",
+    "description": "Test threat intelligence lookup functionality",
+    "steps": [
+      "Navigate to Threat Intelligence page (/threat-intelligence)",
+      "Verify page loads correctly",
+      "Check indicator type selector (IP, domain, URL, hash)",
+      "Verify indicator input field",
+      "Test lookup form functionality",
+      "Verify results display area"
+    ]
+  },
+  {
+    "id": "file_analysis_navigation",
+    "title": "File Analysis Page Navigation",
+    "description": "Test file analysis page and upload functionality",
+    "steps": [
+      "Navigate to File Analysis page (/file-analysis)",
+      "Verify page loads correctly", 
+      "Check for file upload component",
+      "Verify file selection functionality",
+      "Test file upload validation",
+      "Verify analysis results area"
+    ]
+  },
+  {
+    "id": "threats_page_navigation",
+    "title": "Threats Page Navigation",
+    "description": "Test threat alerts management page",
+    "steps": [
+      "Navigate to Threats page (/threats)",
+      "Verify page loads correctly",
+      "Check for threat alerts list",
+      "Verify filtering options",
+      "Test severity indicators",
+      "Verify alert details display"
+    ]
+  },
+  {
+    "id": "analytics_navigation",
+    "title": "Analytics Page Navigation",
+    "description": "Test analytics and reporting page",
+    "steps": [
+      "Navigate to Analytics page (/analytics)",
+      "Verify page loads correctly",
+      "Check for analytics charts and graphs",
+      "Verify metrics display",
+      "Test data visualization components",
+      "Verify report generation options"
+    ]
+  },
+  {
+    "id": "settings_navigation",
+    "title": "Settings Page Navigation",
+    "description": "Test settings and configuration page",
+    "steps": [
+      "Navigate to Settings page (/settings)",
+      "Verify page loads correctly",
+      "Check for user preference options",
+      "Verify notification settings",
+      "Test configuration forms",
+      "Verify save functionality"
+    ]
+  },
+  {
+    "id": "navigation_menu_test",
+    "title": "Main Navigation Menu Testing",
+    "description": "Test all navigation links and menu functionality",
+    "steps": [
+      "Login to application",
+      "Verify main navigation menu is visible",
+      "Test each navigation link (Dashboard, URL Analysis, Email Inspection, etc.)",
+      "Verify active state indicators work",
+      "Test navigation between different pages",
+      "Verify consistent layout across pages"
+    ]
+  },
+  {
+    "id": "responsive_design_test",
+    "title": "Responsive Design Testing",
+    "description": "Test application responsiveness across different screen sizes",
+    "steps": [
+      "Test application on desktop viewport (1920x1080)",
+      "Resize to tablet viewport (768x1024)",
+      "Test mobile viewport (375x667)",
+      "Verify layout adapts correctly",
+      "Check component responsiveness",
+      "Verify navigation works on mobile"
+    ]
+  },
+  {
+    "id": "form_validation_test",
+    "title": "Form Validation Testing",
+    "description": "Test form validation across different pages",
+    "steps": [
+      "Test URL analysis form with invalid URLs",
+      "Test email inspection with malformed data",
+      "Verify error messages display correctly",
+      "Test required field validation",
+      "Verify successful form submissions",
+      "Check input sanitization"
+    ]
+  },
+  {
+    "id": "loading_states_test",
+    "title": "Loading States and Error Handling",
+    "description": "Test loading indicators and error handling throughout the application",
+    "steps": [
+      "Test loading states during form submissions",
+      "Verify error handling for network failures",
+      "Check loading indicators on data fetch",
+      "Test timeout handling",
+      "Verify graceful error messages",
+      "Test retry functionality where available"
+    ]
+  },
+  {
+    "id": "accessibility_test",
+    "title": "Accessibility Testing",
+    "description": "Test application accessibility features",
+    "steps": [
+      "Test keyboard navigation using Tab key",
+      "Verify focus indicators are visible",
+      "Check ARIA labels on interactive elements",
+      "Test with screen reader simulation",
+      "Verify heading hierarchy",
+      "Check color contrast ratios"
+    ]
+  },
+  {
+    "id": "backend_integration_test",
+    "title": "Backend Integration Testing",
+    "description": "Test integration with backend services",
+    "steps": [
+      "Verify backend status indicator works",
+      "Test API error handling when backend is unavailable",
+      "Check data persistence and retrieval",
+      "Verify authentication token handling",
+      "Test real-time data updates",
+      "Check scan result storage and retrieval"
+    ]
+  },
+  {
+    "id": "performance_test",
+    "title": "Performance Testing",
+    "description": "Test application performance and load times",
+    "steps": [
+      "Measure initial page load time",
+      "Test navigation performance between pages",
+      "Check component rendering speed",
+      "Verify lazy loading functionality",
+      "Test with large datasets",
+      "Monitor memory usage during operations"
+    ]
+  },
+  {
+    "id": "security_features_test",
+    "title": "Security Features Testing",
+    "description": "Test security-related features and protections",
+    "steps": [
+      "Test protected route access without authentication",
+      "Verify session timeout handling",
+      "Test input sanitization and validation",
+      "Check for XSS protection",
+      "Verify secure data handling",
+      "Test logout security (session cleanup)"
+    ]
+  }
+]

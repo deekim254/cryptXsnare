@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:8080",
+  "loginUser": "testaid101@gmail.com",
+  "loginPassword": "Afrie2025",
+  "executionArgs": {
+    "projectName": "network-threat-watch",
+    "projectPath": "C:\\Users\\deekim\\Dropbox\\Assignment\\8 - 25\\network-threat-watch",
+    "testIds": [],
+    "additionalInstruction": "Execute comprehensive frontend tests for the Network Threat Watch security application. Focus on authentication flows, dashboard functionality, security analysis features (URL, email, network, file), threat intelligence, and user interface testing. Verify all interactive elements work correctly and data is displayed properly.",
+    "envs": {
+      "API_KEY": "sk-user-VTJAU6Jy6KySzZtslMdKnFGdWHJXbkVUuwHqs1LVp188tHPfY0g9LB39bVUzA5NPDbFmpLH7y3fAPGZSJRFm1G9oOVO5qGiJkWx2bPhT4EckQ90k5iGEIm5--n3tatm85OE"
+    }
+  },
+  "proxy": "http://6e2935f9-1e81-43f0-b9e7-d29aca0630ef:xvpMZazYKZwa13ii7rdna3xxHeccdtsm@tun.testsprite.com:8080"
+}

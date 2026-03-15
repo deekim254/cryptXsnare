@@ -1,0 +1,489 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "React",
+    "Vite",
+    "Supabase",
+    "FastAPI",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "React Router",
+    "TanStack Query",
+    "Lucide React",
+    "Recharts"
+  ],
+  "features": [
+    {
+      "name": "Authentication System",
+      "description": "User authentication and session management using Supabase Auth with protected routes",
+      "files": [
+        "src/components/auth/AuthWrapper.tsx",
+        "src/integrations/supabase/client.ts",
+        "src/pages/ResetPassword.tsx"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Authentication API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/auth/login": {
+            "post": {
+              "summary": "User login",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "email": {"type": "string"},
+                        "password": {"type": "string"}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/auth/signup": {
+            "post": {
+              "summary": "User registration",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "email": {"type": "string"},
+                        "password": {"type": "string"}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Security Dashboard",
+      "description": "Main dashboard showing threat overview, alerts, statistics and system health monitoring",
+      "files": [
+        "src/pages/Dashboard.tsx",
+        "src/components/BackendStatus.tsx"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Dashboard API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/dashboard/stats": {
+            "get": {
+              "summary": "Get dashboard statistics",
+              "responses": {
+                "200": {
+                  "description": "Dashboard statistics",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "totalAlerts": {"type": "number"},
+                          "criticalAlerts": {"type": "number"},
+                          "urlScans": {"type": "number"},
+                          "emailScans": {"type": "number"},
+                          "threatScore": {"type": "number"}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "URL Analysis",
+      "description": "URL threat analysis and scanning functionality with reputation checking and malware detection",
+      "files": [
+        "src/pages/UrlAnalysis.tsx",
+        "src/services/threatService.ts"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "URL Analysis API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/scan/url": {
+            "post": {
+              "summary": "Scan URL for threats",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "url": {"type": "string"},
+                        "deep_scan": {"type": "boolean"}
+                      }
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "200": {
+                  "description": "URL scan results",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "url": {"type": "string"},
+                          "score": {"type": "number"},
+                          "verdict": {"type": "string", "enum": ["safe", "suspicious", "malicious"]},
+                          "sources": {"type": "object"},
+                          "checks": {"type": "object"},
+                          "details": {"type": "object"}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Email Inspection",
+      "description": "Email security analysis including header analysis, phishing detection, and authentication verification",
+      "files": [
+        "src/pages/EmailInspection.tsx",
+        "src/services/threatService.ts"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Email Inspection API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/scan/email": {
+            "post": {
+              "summary": "Scan email for threats",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "headers": {"type": "string"},
+                        "content": {"type": "string"},
+                        "attachments": {"type": "array", "items": {"type": "string"}}
+                      }
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "200": {
+                  "description": "Email scan results",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "sender": {"type": "string"},
+                          "subject": {"type": "string"},
+                          "score": {"type": "number"},
+                          "verdict": {"type": "string", "enum": ["safe", "suspicious", "phishing"]},
+                          "authentication": {"type": "object"},
+                          "content_analysis": {"type": "object"},
+                          "threat_intelligence": {"type": "object"}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Network Monitoring",
+      "description": "Network traffic analysis, anomaly detection, and PCAP file processing for threat identification",
+      "files": [
+        "src/pages/NetworkMonitoring.tsx",
+        "src/services/threatService.ts",
+        "src/components/NetworkBubbleChart.tsx",
+        "src/components/NetworkLineChart.tsx"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Network Monitoring API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/scan/network": {
+            "post": {
+              "summary": "Analyze network traffic",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "pcap_data": {"type": "string"},
+                        "traffic_logs": {"type": "string"},
+                        "source_ip": {"type": "string"},
+                        "destination_ip": {"type": "string"}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/scan/upload-pcap": {
+            "post": {
+              "summary": "Upload PCAP file for analysis",
+              "requestBody": {
+                "content": {
+                  "multipart/form-data": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "file": {"type": "string", "format": "binary"}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threat Intelligence",
+      "description": "Threat intelligence lookup and analysis for IP addresses, domains, URLs, and file hashes",
+      "files": [
+        "src/pages/ThreatIntelligence.tsx",
+        "src/services/threatService.ts"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Threat Intelligence API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/threat-intel/lookup": {
+            "post": {
+              "summary": "Lookup threat intelligence",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "indicator": {"type": "string"},
+                        "indicator_type": {"type": "string", "enum": ["ip", "domain", "url", "hash"]}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "File Analysis",
+      "description": "File scanning and malware analysis functionality",
+      "files": [
+        "src/pages/FileAnalysis.tsx"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "File Analysis API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/scan/file": {
+            "post": {
+              "summary": "Scan file for threats",
+              "requestBody": {
+                "content": {
+                  "multipart/form-data": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "file": {"type": "string", "format": "binary"}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Reconnaissance",
+      "description": "OSINT and reconnaissance tools for security research and investigation",
+      "files": [
+        "src/pages/Reconnaissance.tsx",
+        "src/services/reconService.ts"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Reconnaissance API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/recon/domain": {
+            "post": {
+              "summary": "Domain reconnaissance",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "domain": {"type": "string"}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Threat Alerts Management",
+      "description": "System for creating, managing, and tracking security threat alerts with severity levels",
+      "files": [
+        "src/pages/Threats.tsx",
+        "src/services/threatService.ts",
+        "src/components/AlertNotifications.tsx"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Threat Alerts API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/alerts": {
+            "get": {
+              "summary": "Get threat alerts"
+            },
+            "post": {
+              "summary": "Create threat alert",
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "type": {"type": "string"},
+                        "severity": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+                        "title": {"type": "string"},
+                        "description": {"type": "string"}
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Analytics and Reporting",
+      "description": "Security analytics dashboard with charts, metrics, and reporting capabilities",
+      "files": [
+        "src/pages/Analytics.tsx"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Analytics API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/analytics/metrics": {
+            "get": {
+              "summary": "Get security analytics metrics"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Automated Response",
+      "description": "Automated incident response and threat mitigation system",
+      "files": [
+        "src/pages/AutomatedResponse.tsx"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Automated Response API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/response/automate": {
+            "post": {
+              "summary": "Trigger automated response"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Settings Management",
+      "description": "Application configuration and user settings management",
+      "files": [
+        "src/pages/Settings.tsx"
+      ],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Settings API",
+          "version": "1.0.0"
+        },
+        "paths": {
+          "/settings": {
+            "get": {
+              "summary": "Get user settings"
+            },
+            "put": {
+              "summary": "Update user settings"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
